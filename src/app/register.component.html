@@ -1,0 +1,19 @@
+<h3>Registration</h3>
+
+<form [formGroup]="form">
+  <div class="form-group {{ !form.controls.username.valid && submitAttempt && 'has-error' }}">
+    <label for="username">Username</label>
+    <input type="text" formControlName="username" class="form-control" id="username" placeholder="Username">
+    <span class="help-block" *ngIf="!form.controls.username.valid && submitAttempt">
+      Please provide a username.
+    </span>
+  </div>
+  <div class="form-group {{ !form.controls.password.valid && submitAttempt && 'has-error' }}">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+    <span class="help-block" *ngIf="!form.controls.username.valid && submitAttempt">
+      The password should contain at least 8 character.
+    </span>    
+  </div>
+  <button type="button" class="btn btn-default" (click)="register()">Submit</button>
+</form>
